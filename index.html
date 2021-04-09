@@ -20,25 +20,26 @@
       <header>
         <h1>BOOLFLIX</h1>
         <div class="search">
-          <input type="text" value="">
-          <button type="button" name="button">Cerca</button>
+          <input type="text" value="" placeholder="Cerca un film" v-model="search" @keypress.enter="find">
+          <button type="button" name="button" @click="find">Cerca</button>
         </div>
       </header>
       <!-- fine intestazione -->
       <!-- corpo -->
       <main>
         <div class="container">
-          <div class="box_movie">
-            <img src="https://image.tmdb.org/t/p/w500/xlBivetfrtF84Yx0zISShnNtHYe.jpg" alt="Poster">
-            <div class="movie_info">
-              <div class="info"><span>Titolo:</span> Ritorno al futuro</div>
-              <div class="info"><span>Titolo originale:</span> Back to the future</div>
-              <div class="info"><span>Lingua:</span> en</div>
-              <div class="info"><span>Voto:</span> alto</div>
-              <div class="info"><span>Descrizione:</span> Eighties teenager Marty McFly is accidentally sent back in time to 1955, inadvertently disrupting his parents' first meeting and attracting his mother's romantic interest. Marty must repair the damage to history by rekindling his parents' romance and - with the help of his eccentric inventor friend Doc Brown - return to 1985.</div>
 
+          <div class="box_movie" v-for="movie in movieList">
+            <img :src="'https://image.tmdb.org/t/p/w500' + movie.poster_path" :alt="'Poster ' + movie.title">
+            <div class="movie_info">
+              <div class="info"><span>Titolo: </span>{{ movie.title }}</div>
+              <div class="info"><span>Titolo originale: </span>{{ movie.original_title }}</div>
+              <div class="info"><span>Lingua: </span>{{ movie.original_language }}</div>
+              <div class="info"><span>Voto: </span>{{ movie.vote_average }}</div>
+              <div class="info"><span>Descrizione: </span>{{ movie.overview }}</div>
             </div>
           </div>
+          
         </div>
       </main>
       <!-- fine corpo -->
