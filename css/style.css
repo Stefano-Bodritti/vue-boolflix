@@ -110,4 +110,8 @@ main {
   text-align: center;
   color: white;
 }
+
+i.fa-star {
+  color: yellow;
+}
 /* fine corpo */

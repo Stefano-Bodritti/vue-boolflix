@@ -17,7 +17,9 @@ var app = new Vue(
           })
           .then( (response) => {
             this.movieList = response.data.results;
-            // console.log(this.movieList);
+            this.movieList.forEach((movie) => {
+              movie.stars = Math.ceil(movie.vote_average / 2);
+            });
           });
         }
       }

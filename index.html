@@ -11,6 +11,9 @@
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
     <link rel="stylesheet" href="css/style.css">
     <title>Boolflix</title>
   </head>
@@ -46,7 +49,10 @@
               <div class="info"><span>Titolo: </span>{{ movie.title }}</div>
               <div class="info"><span>Titolo originale: </span>{{ movie.original_title }}</div>
               <div class="info"><span>Lingua: </span>{{ movie.original_language }}</div>
-              <div class="info"><span>Voto: </span>{{ movie.vote_average }}</div>
+              <div class="info">
+                <span>Voto: </span>
+                <i v-for="star in movie.stars" class="fas fa-star"></i>
+              </div>
               <div class="info"><span>Descrizione: </span>{{ movie.overview }}</div>
             </div>
           </div>
