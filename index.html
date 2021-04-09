@@ -19,6 +19,16 @@
       <!-- intestazione -->
       <header>
         <h1>BOOLFLIX</h1>
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Serie TV</a></li>
+            <li><a href="#">Film</a></li>
+            <li><a href="#">Originali</a></li>
+            <li><a href="#">Aggiunti di recente</a></li>
+            <li><a href="#">La mia lista</a></li>
+          </ul>
+        </nav>
         <div class="search">
           <input type="text" value="" placeholder="Cerca un film" v-model="search" @keypress.enter="find">
           <button type="button" name="button" @click="find">Cerca</button>
@@ -30,7 +40,8 @@
         <div class="container">
 
           <div class="box_movie" v-for="movie in movieList">
-            <img :src="'https://image.tmdb.org/t/p/w500' + movie.poster_path" :alt="'Poster ' + movie.title">
+            <img v-if="movie.poster_path != null" :src="'https://image.tmdb.org/t/p/w500' + movie.poster_path" :alt="'Poster ' + movie.title">
+            <div v-else class="not_available">IMMAGINE NON DISPONIBILE</div>
             <div class="movie_info">
               <div class="info"><span>Titolo: </span>{{ movie.title }}</div>
               <div class="info"><span>Titolo originale: </span>{{ movie.original_title }}</div>
@@ -39,7 +50,7 @@
               <div class="info"><span>Descrizione: </span>{{ movie.overview }}</div>
             </div>
           </div>
-          
+
         </div>
       </main>
       <!-- fine corpo -->

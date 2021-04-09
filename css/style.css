@@ -1,3 +1,4 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +9,7 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+/* intestazione */
 header {
   height: 70px;
   padding: 0 10px;
@@ -26,6 +28,23 @@ input {
   outline: none;
 }
 
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav a {
+  color: #cccccc;
+  font-size: 16px;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+nav a:hover {
+  color: white;
+}
+/* fine intestazione */
+/* corpo */
 main {
   background-color: grey;
   height: calc(100vh - 70px);
@@ -41,8 +60,8 @@ main {
 }
 
 .box_movie {
-  height: 328px;
-  width: 220px;
+  height: 373px;
+  width: 250px;
   margin: 10px 15px;
   border: 2px solid white;
   background-color: black;
@@ -55,11 +74,23 @@ main {
 .movie_info {
   display: none;
   height: 100%;
-  padding: 15px 8px;
+  padding: 10px 8px;
   color: white;
   font-size: 13px;
   line-height: 130%;
   overflow-y: auto;
+}
+
+.movie_info::-webkit-scrollbar {
+  width: 5px;
+}
+
+.movie_info::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.movie_info::-webkit-scrollbar-thumb {
+  background: #888;
 }
 
 .movie_info span {
@@ -70,6 +101,13 @@ main {
   display: block;
 }
 
-.box_movie:hover img {
+.box_movie:hover img, .box_movie:hover .not_available {
   display: none;
 }
+
+.not_available {
+  margin-top: 5px;
+  text-align: center;
+  color: white;
+}
+/* fine corpo */
