@@ -19,6 +19,9 @@ var app = new Vue(
             this.movieList = response.data.results;
             this.movieList.forEach((movie) => {
               movie.stars = Math.ceil(movie.vote_average / 2);
+              if ( movie.original_language == "en" ) {
+                movie.original_language = "us";
+              }
             });
           });
         }

@@ -33,7 +33,7 @@
           </ul>
         </nav>
         <div class="search">
-          <input type="text" value="" placeholder="Cerca un film" v-model="search" @keypress.enter="find">
+          <input type="text" placeholder="Cerca un film" v-model="search" @keypress.enter="find">
           <button type="button" name="button" @click="find">Cerca</button>
         </div>
       </header>
@@ -43,12 +43,16 @@
         <div class="container">
 
           <div class="box_movie" v-for="movie in movieList">
-            <img v-if="movie.poster_path != null" :src="'https://image.tmdb.org/t/p/w500' + movie.poster_path" :alt="'Poster ' + movie.title">
+            <img class="poster" v-if="movie.poster_path != null" :src="'https://image.tmdb.org/t/p/w500' + movie.poster_path" :alt="'Poster ' + movie.title">
             <div v-else class="not_available">IMMAGINE NON DISPONIBILE</div>
             <div class="movie_info">
               <div class="info"><span>Titolo: </span>{{ movie.title }}</div>
               <div class="info"><span>Titolo originale: </span>{{ movie.original_title }}</div>
-              <div class="info"><span>Lingua: </span>{{ movie.original_language }}</div>
+              <div class="info">
+                <span>Lingua: </span>
+                <img v-if="movie.original_language != null" :src="'https://www.countryflags.io/' + movie.original_language + '/flat/16.png'">
+                <span v-else>Lingua non trovata</span>
+              </div>
               <div class="info">
                 <span>Voto: </span>
                 <i v-for="star in movie.stars" class="fas fa-star"></i>

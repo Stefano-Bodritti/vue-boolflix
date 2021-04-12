@@ -67,7 +67,7 @@ main {
   background-color: black;
 }
 
-.box_movie img {
+.box_movie img.poster {
   width: 100%;
 }
 
@@ -101,7 +101,7 @@ main {
   display: block;
 }
 
-.box_movie:hover img, .box_movie:hover .not_available {
+.box_movie:hover img.poster, .box_movie:hover .not_available {
   display: none;
 }
 
@@ -113,5 +113,10 @@ main {
 
 i.fa-star {
   color: yellow;
+}
+
+.info img {
+  vertical-align: middle;
+  margin-left: 3px;
 }
 /* fine corpo */
