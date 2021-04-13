@@ -33,7 +33,7 @@
           </ul>
         </nav>
         <div class="search">
-          <input type="text" placeholder="Cerca un film" v-model="search" @keypress.enter="find">
+          <input type="text" placeholder="Cerca un film o una serie" v-model="search" @keypress.enter="find">
           <button type="button" name="button" @click="find">Cerca</button>
         </div>
       </header>
@@ -46,8 +46,10 @@
             <img class="poster" v-if="movie.poster_path != null" :src="'https://image.tmdb.org/t/p/w500' + movie.poster_path" :alt="'Poster ' + movie.title">
             <div v-else class="not_available">IMMAGINE NON DISPONIBILE</div>
             <div class="movie_info">
-              <div class="info"><span>Titolo: </span>{{ movie.title }}</div>
-              <div class="info"><span>Titolo originale: </span>{{ movie.original_title }}</div>
+              <div v-if="movie.type == 'movie'" class="info"><span>Titolo: </span>{{ movie.title }}</div>
+              <div v-else class="info"><span>Titolo: </span>{{ movie.name }}</div>
+              <div v-if="movie.type == 'movie'" class="info"><span>Titolo originale: </span>{{ movie.original_title }}</div>
+              <div v-else class="info"><span>Titolo originale: </span>{{ movie.original_name }}</div>
               <div class="info">
                 <span>Lingua: </span>
                 <img v-if="movie.original_language != null" :src="'https://www.countryflags.io/' + movie.original_language + '/flat/16.png'">
