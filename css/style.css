@@ -12,7 +12,7 @@ body {
 /* intestazione */
 header {
   height: 70px;
-  padding: 0 10px;
+  padding: 0 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,6 +26,9 @@ h1 {
 
 input {
   outline: none;
+  height: 30px;
+  border: none;
+  padding: 3px;
 }
 
 nav ul {
@@ -41,6 +44,25 @@ nav a {
 }
 
 nav a:hover {
+  color: white;
+}
+
+.search{
+  display: flex;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.search button {
+  height: 30px;
+  width: 30px;
+  background-color: red;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.search i {
   color: white;
 }
 /* fine intestazione */

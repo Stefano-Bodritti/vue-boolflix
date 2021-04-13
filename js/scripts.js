@@ -25,6 +25,7 @@ var app = new Vue(
               movie.type = "movie";
               this.movieList.push(movie);
             });
+            this.movieList.sort( (a, b) => b.vote_count - a.vote_count);
           });
 
           axios.get("https://api.themoviedb.org/3/search/tv", {
@@ -41,6 +42,7 @@ var app = new Vue(
               show.type = "series";
               this.movieList.push(show);
             });
+            this.movieList.sort( (a, b) => b.vote_count - a.vote_count);
           });
         }
       },
