@@ -35,6 +35,11 @@
         <div class="search">
           <input type="text" placeholder="Cerca un film o una serie" v-model="search" @keypress.enter="find">
           <button type="button" name="button" @click="find"><i class="fas fa-search"></i></button>
+          <select name="type" v-model="selected">
+            <option value="all">Tutto</option>
+            <option value="movie">Film</option>
+            <option value="series">Serie TV</option>
+          </select>
         </div>
       </header>
       <!-- fine intestazione -->
@@ -42,7 +47,7 @@
       <main>
         <div class="container">
 
-          <div class="box_movie" v-for="movie in movieList">
+          <div class="box_movie" v-for="movie in searchList">
             <img class="poster" v-if="movie.poster_path != null" :src="'https://image.tmdb.org/t/p/w500' + movie.poster_path" :alt="'Poster ' + movie.title">
             <div v-else class="not_available">IMMAGINE NON DISPONIBILE</div>
             <div class="movie_info">

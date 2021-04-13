@@ -65,6 +65,11 @@ nav a:hover {
 .search i {
   color: white;
 }
+
+header select {
+  outline: none;
+  border: none;
+}
 /* fine intestazione */
 /* corpo */
 main {
