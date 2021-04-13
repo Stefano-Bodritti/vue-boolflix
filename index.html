@@ -57,7 +57,7 @@
               </div>
               <div class="info">
                 <span>Voto: </span>
-                <i v-for="star in movie.stars" class="fas fa-star"></i>
+                <i v-for="star in movie.stars" class="fas fa-star"></i><i v-for="star in (5 - movie.stars)" class="far fa-star"></i>
               </div>
               <div class="info"><span>Descrizione: </span>{{ movie.overview }}</div>
             </div>
