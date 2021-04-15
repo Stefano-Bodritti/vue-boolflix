@@ -57,7 +57,7 @@
               <div v-else class="info"><span>Titolo originale: </span>{{ movie.original_name }}</div>
               <div class="info">
                 <span>Lingua: </span>
-                <img v-if="movie.original_language != null" :src="'https://www.countryflags.io/' + movie.original_language + '/flat/16.png'">
+                <img v-if="movie.original_language != null" :src="'https://www.countryflags.io/' + movie.original_language + '/flat/16.png'" alt="Flag">
                 <span v-else>Lingua non trovata</span>
               </div>
               <div class="info">
